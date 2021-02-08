@@ -28,7 +28,7 @@ Currently, the node is able to cross-translate messages between:<br/>
 ## CHANGELOG
 * See <a href="https://github.com/vivereSmartGroup/node-red-contrib-viveresmartgroup-knxultil/blob/master/CHANGELOG.md">here the changelog</a>
 
-# KnxUltil Node
+# KnxUltil NODE
 
 <img src='https://raw.githubusercontent.com/vivereSmartGroup/node-red-contrib-viveresmartgroup-knxultil/master/img/KnxUltil.png' width='60%'>
 
