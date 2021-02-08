@@ -1,0 +1,108 @@
+<script type="text/javascript">
+	RED.nodes.registerType('KnxUltil', {
+		category: 'KnxUltil',
+		color: '#3874B8',
+		defaults: {
+			name: { value: "" },
+			inputpayload: { value: "node-red-contrib-knx-ultimate" },
+			outputpayload: { value: "node-red-contrib-knx-ultimate" },
+			topic: { value: "result" }
+		},
+		inputs: 1,
+		outputs: 1,
+		outputLabels: function (i) {
+			switch (i) {
+				case 0:
+					return "Payload";
+					break;
+				default:
+					break;
+			}
+		},
+		icon: "serial.png",
+		label:
+		function () {
+			return "KnxUltil";
+		},
+		paletteLabel: function () {
+			return "KnxUltil";
+		},
+		oneditprepare: function () {
+			// Add write and response as default for existing nodes like was default before
+			if (this.outputtriggeredby === 'all') {
+				$("#triggertopic").hide()
+			} else {
+				$("#triggertopic").show()
+			}
+
+			$("#node-input-outputtriggeredby").on('change', function () {
+				if ($("#node-input-outputtriggeredby").val() === "all") {
+					$("#triggertopic").hide()
+				} else {
+					$("#triggertopic").show()
+				}
+			})
+
+			// default
+			if (typeof this.outputtriggeredby === "undefined") {
+				$("#node-input-outputtriggeredby").val("all");
+				this.outputtriggeredby = "all";
+			}
+
+			// default
+			if (typeof this.sInitializeWith === "undefined") {
+				$("#node-input-sInitializeWith").val("WaitForPayload");
+				this.sInitializeWith = "WaitForPayload";
+			}
+
+		},
+		oneditsave: function () {
+	
+		}
+	});
+
+
+</script>
+
+<script type="text/x-red" data-template-name="KnxUltil">
+	<div class="form-row">
+	<b>KnxUltil</b>&nbsp&nbsp&nbsp&nbsp<span style="color:red"><i class="fa fa-question-circle"></i>&nbsp<a target="_blank" href="https://github.com/vivereSmartGroup/node-red-contrib-viveresmartgroup-knxultil"><u>Help online</u></a></span>
+	<br/>
+	<br/>        
+	</div>
+	<div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+	<div class="form-row">
+        <label for="node-input-topic"><i class="fa fa-tasks"></i> Topic</label>
+        <input type="text" id="node-input-topic" placeholder="Node's own topic">
+	</div>
+    <div class="form-row">
+        <label for="node-input-inputpayload"><i class="fa fa-arrow-right"></i> Input</label>
+        <select type="text" id="node-input-inputpayload">
+			<option value="node-red-contrib-knx-ultimate">node-red-contrib-knx-ultimate</option>
+			<option value="node-red-contrib-homekit-bridged">node-red-contrib-homekit-bridged</option>
+			<option value="node-red-contrib-alexa-smart-home">node-red-contrib-alexa-smart-home</option>
+			<option value="node-red-contrib-deconz">node-red-contrib-deconz</option>
+		</select>
+	</div>
+	<div class="form-row">
+        <label for="node-input-outputpayload"><i class="fa fa-arrow-right"></i> Output</label>
+        <select type="text" id="node-input-outputpayload">
+			<option value="node-red-contrib-knx-ultimate">node-red-contrib-knx-ultimate</option>
+			<option value="node-red-contrib-homekit-bridged">node-red-contrib-homekit-bridged</option>
+			<option value="node-red-contrib-alexa-smart-home">node-red-contrib-alexa-smart-home</option>
+			<option value="node-red-contrib-deconz">node-red-contrib-deconz</option>
+		</select>
+	</div>
+
+</script>
+
+<script type="text/x-red" data-help-name="KnxUltil">
+		
+	<b>KnxUltil</b>&nbsp&nbsp&nbsp&nbsp<span style="color:red"><i class="fa fa-question-circle"></i>&nbsp<a target="_blank" href="https://github.com/vivereSmartGroup/node-red-contrib-viveresmartgroup-knxultil"><u>Help online</u></a></span>
+	
+	
+	
+</script>

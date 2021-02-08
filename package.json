@@ -1,0 +1,30 @@
+{
+    "name": "node-red-contrib-viveresmartgroup-knxultil",
+    "version": "0.0.1",
+    "description": "A set of utility nodes to translate messages between KNX, Alexa, Homekit and deConz.",
+    "author": "vivereSmartGroup (https://github.com/vivereSmartGroup)",
+    "dependencies": {
+        "fs": "0.0.1-security"
+    },
+    "keywords": [
+        "node-red",
+        "Alexa",
+        "Zigbee",
+        "deConz",
+        "KNX",
+        "Siri",
+        "Homekit",
+        "adapter",
+        "translator"
+    ],
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/vivereSmartGroup/node-red-contrib-viveresmartgroup-knxultil"
+    },
+    "node-red": {
+        "nodes": {
+            "KnxUltil": "src/KnxUltil.js"
+        }
+    }
+}
