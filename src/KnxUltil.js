@@ -99,7 +99,7 @@ module.exports = function (RED) {
 			//#endregion
 
 			setNodeStatus({ fill: "green", shape: "dot", text: "OK" });
-			return outputMSG;
+			node.send( outputMSG);
 
 		});
 
