@@ -67,8 +67,8 @@ module.exports = function (RED) {
 
 			//#region "ADAPT OUTPUT MESSAGE"
 			// #################################################################
-			let outputMSG = RED.util.cloneMessage(msg);
-			outputMSG.conversion = { conversionFrom: node.inputpayloadtype, conversionTo: node.outputpayloadtype, conversionType: node.devicetype }
+			let originalMSG = RED.util.cloneMessage(msg);
+			let outputMSG = {};
 			try {
 				switch (node.outputpayloadtype) {
 					case "node-red-contrib-knx-ultimate":
@@ -99,7 +99,9 @@ module.exports = function (RED) {
 			//#endregion
 
 			setNodeStatus({ fill: "green", shape: "dot", text: "OK" });
-			node.send( outputMSG);
+			outputMSG.conversion = { conversionFrom: node.inputpayloadtype, conversionTo: node.outputpayloadtype, conversionType: node.devicetype };
+			outputMSG.originalmessage = originalMSG;
+			node.send(outputMSG);
 
 		});
 
