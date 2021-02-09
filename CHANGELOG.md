@@ -2,6 +2,6 @@
 
 
 <p>
-<b>Version 0.0.1</b><br/>
+<b>Version 0.0.2</b><br/>
 - Initial release.</br>
 </p>

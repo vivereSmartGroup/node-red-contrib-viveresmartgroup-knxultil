@@ -1,11 +1,12 @@
 <script type="text/javascript">
 	RED.nodes.registerType('KnxUltil', {
 		category: 'KnxUltil',
-		color: '#3874B8',
+		color: '#5DADE2',
 		defaults: {
 			name: { value: "" },
-			inputpayload: { value: "node-red-contrib-knx-ultimate" },
-			outputpayload: { value: "node-red-contrib-knx-ultimate" },
+			inputpayloadtype: { value: "node-red-contrib-knx-ultimate" },
+			outputpayloadtype: { value: "node-red-contrib-homekit-bridged" },
+			devicetype: { value: "boolean" },
 			topic: { value: "result" }
 		},
 		inputs: 1,
@@ -78,22 +79,31 @@
         <label for="node-input-topic"><i class="fa fa-tasks"></i> Topic</label>
         <input type="text" id="node-input-topic" placeholder="Node's own topic">
 	</div>
+	<div class="form-row">
+        <label for="node-input-devicetype"><i class="fa fa-task"></i> Will handle</label>
+        <select type="text" id="node-input-devicetype">
+			<option value="boolean">Boolean (for example TRUE/FALSE, ON/OFF)</option>
+			<option value="temperature">Temperature</option>
+			<option value="brightness">Brightness</option>
+			<option value="cover">Cover (for example, shutter or blind)</option>
+		</select>
+	</div>
     <div class="form-row">
-        <label for="node-input-inputpayload"><i class="fa fa-arrow-right"></i> Input</label>
-        <select type="text" id="node-input-inputpayload">
+        <label for="node-input-inputpayloadtype"><i class="fa fa-arrow-right"></i> Input</label>
+        <select type="text" id="node-input-inputpayloadtype" style="width:60%">
 			<option value="node-red-contrib-knx-ultimate">node-red-contrib-knx-ultimate</option>
 			<option value="node-red-contrib-homekit-bridged">node-red-contrib-homekit-bridged</option>
 			<option value="node-red-contrib-alexa-smart-home">node-red-contrib-alexa-smart-home</option>
-			<option value="node-red-contrib-deconz">node-red-contrib-deconz</option>
+			<!-- <option value="node-red-contrib-deconz">node-red-contrib-deconz</option> -->
 		</select>
 	</div>
 	<div class="form-row">
-        <label for="node-input-outputpayload"><i class="fa fa-arrow-right"></i> Output</label>
-        <select type="text" id="node-input-outputpayload">
+        <label for="node-input-outputpayloadtype"><i class="fa fa-arrow-right"></i> Output</label>
+        <select type="text" id="node-input-outputpayloadtype" style="width:60%">
 			<option value="node-red-contrib-knx-ultimate">node-red-contrib-knx-ultimate</option>
 			<option value="node-red-contrib-homekit-bridged">node-red-contrib-homekit-bridged</option>
 			<option value="node-red-contrib-alexa-smart-home">node-red-contrib-alexa-smart-home</option>
-			<option value="node-red-contrib-deconz">node-red-contrib-deconz</option>
+			<!-- <option value="node-red-contrib-deconz">node-red-contrib-deconz</option> -->
 		</select>
 	</div>
 

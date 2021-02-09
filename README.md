@@ -4,6 +4,7 @@
 # node-red-contrib-viveresmartgroup-knxultil
 
 
+
 [![NPM version][npm-version-image]][npm-url]
 [![NPM downloads per month][npm-downloads-month-image]][npm-url]
 [![NPM downloads total][npm-downloads-total-image]][npm-url]
@@ -13,6 +14,8 @@
 
 <br/>
 <br/>
+
+## THIS NODE IS STILL IN BETA
 
 A set of utility nodes to translate messages between KNX, Alexa, Homekit and deConz.
 This node allows you to simply translate the output of various other nodes, into the input of other nodes.<br/>
@@ -30,12 +33,14 @@ Currently, the node is able to cross-translate messages between:<br/>
 
 # KnxUltil NODE
 
-<img src='https://raw.githubusercontent.com/vivereSmartGroup/node-red-contrib-viveresmartgroup-knxultil/master/img/KnxUltil.png' width='60%'>
+<!-- <img src='https://raw.githubusercontent.com/vivereSmartGroup/node-red-contrib-viveresmartgroup-knxultil/master/img/KnxUltil.png' width='60%'> -->
 
+<br/>
+<br/>
 
 <details><summary>CLICK HERE, copy and paste it into your flow</summary>
 <code>
-]},{"id":"b65f4ff4.bfe2c8","type":"comment","z":"adb2ee5c.0bf6e","name":"Motion sensor turns on lights, when it's dark. The light turns off itself at day","info":"","x":290,"y":100,"wires":[]}]
+Please wait, we'll come as soon as possible.
 </code>
 </details>
 
