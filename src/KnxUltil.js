@@ -99,8 +99,9 @@ module.exports = function (RED) {
 			//#endregion
 
 			setNodeStatus({ fill: "green", shape: "dot", text: "OK" });
-			outputMSG.conversion = { conversionFrom: node.inputpayloadtype, conversionTo: node.outputpayloadtype, conversionType: node.devicetype };
+			outputMSG.conversion = { From: node.inputpayloadtype, To: node.outputpayloadtype, Type: node.devicetype };
 			outputMSG.originalmessage = originalMSG;
+			outputMSG.topic = config.topic === undefined ? config.name || "" : config.topic;
 			node.send(outputMSG);
 
 		});
