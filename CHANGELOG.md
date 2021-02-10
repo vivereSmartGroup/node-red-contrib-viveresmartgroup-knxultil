@@ -1,7 +1,7 @@
 # node-red-contrib-viveresmartgroup-knxultil
 
 <p>
-<b>Version 0.0.5 BETA</b><br/>
+<b>Version 0.0.6 BETA</b><br/>
 - Added deconz translator.</br>
 </p>
 <p>

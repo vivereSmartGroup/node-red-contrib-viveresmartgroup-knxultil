@@ -13,7 +13,6 @@
 [![Facebook][facebook-image]][facebook-url]
 
 <br/>
-<br/>
 
 ## CAUTION: THIS NODE IS STILL IN BETA. THE FIRST STABLE RELEASE WILL BE 1.0.0
 
@@ -26,7 +25,6 @@ Currently, the node is able to cross-translate messages between:<br/>
 - node-red-contrib-deconz
 
 <br/>
-<br/>
 
 ## CHANGELOG
 * See <a href="https://github.com/vivereSmartGroup/node-red-contrib-viveresmartgroup-knxultil/blob/master/CHANGELOG.md">here the changelog</a>
@@ -35,7 +33,7 @@ Currently, the node is able to cross-translate messages between:<br/>
 
 # KnxUltil NODE
 
-<img src='https://raw.githubusercontent.com/vivereSmartGroup/node-red-contrib-viveresmartgroup-knxultil/master/img/KnxUltil.png' width='80%'>
+<img src='https://raw.githubusercontent.com/vivereSmartGroup/node-red-contrib-viveresmartgroup-knxultil/master/img/KnxUltil.png' width='90%'>
 
 <br/>
 
