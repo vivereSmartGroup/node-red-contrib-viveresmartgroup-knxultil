@@ -1,8 +1,8 @@
 # node-red-contrib-viveresmartgroup-knxultil
 
 <p>
-<b>Version 0.0.6 BETA</b><br/>
-- Added deconz translator.</br>
+<b>Version 0.0.7 BETA</b><br/>
+- Added deconz to output translator's list.</br>
 </p>
 <p>
 <b>Version 0.0.4 BETA</b><br/>
