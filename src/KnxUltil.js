@@ -53,6 +53,9 @@ module.exports = function (RED) {
 						if (node.devicetype === "brightness") inputMSG = { payload: msg.payload };
 						if (node.devicetype === "cover") inputMSG = { payload: msg.payload };
 						break;
+					case "node-red-contrib-knx-deconz":
+						inputMSG = { payload: msg.payload };
+						break;
 					default:
 						break;
 				}
@@ -65,26 +68,29 @@ module.exports = function (RED) {
 			// #################################################################
 			//#endregion
 
+
 			//#region "ADAPT OUTPUT MESSAGE"
 			// #################################################################
-			let originalMSG = RED.util.cloneMessage(msg);
-			let outputMSG = {};
+			let outputMSG = RED.util.cloneMessage(msg);
 			try {
 				switch (node.outputpayloadtype) {
 					case "node-red-contrib-knx-ultimate":
 						outputMSG = { payload: inputMSG.payload };
 						break;
 					case "node-red-contrib-homekit-bridged":
-						if (node.devicetype === "boolean") outputMSG = { payload: inputMSG.payload };
+						if (node.devicetype === "boolean") outputMSG = { payload: { On: inputMSG.payload } };
 						if (node.devicetype === "temperature") outputMSG = { payload: { CurrentTemperature: inputMSG.payload } };
 						if (node.devicetype === "brightness") outputMSG = { payload: { On: (inputMSG.payload > 0 ? true : false), Brightness: inputMSG.payload } };
 						if (node.devicetype === "cover") outputMSG = { payload: { CurrentPosition: 100 - inputMSG.payload, PositionState: 2 } };
 						break;
 					case "node-red-contrib-alexa-smart-home":
-						if (node.devicetype === "boolean") outputMSG = { acknowledge: true, payload: { state: { "power": inputMSG.payload } } };
+						if (node.devicetype === "boolean") outputMSG = { acknowledge: true, payload: { state: { power: inputMSG.payload } } };
 						if (node.devicetype === "temperature") outputMSG = { acknowledge: true, payload: { state: { temperature: inputMSG.payload } } };
 						if (node.devicetype === "brightness") outputMSG = { acknowledge: true, payload: { state: { brightness: inputMSG.payload } } };
 						if (node.devicetype === "cover") outputMSG = { acknowledge: true, payload: { state: { rangeValue: (100 - inputMSG.payload) } } };
+						break;
+					case "node-red-contrib-deconz":
+						outputMSG = { payload: inputMSG.payload };
 						break;
 					default:
 						break;
@@ -98,10 +104,9 @@ module.exports = function (RED) {
 			// #################################################################
 			//#endregion
 
-			setNodeStatus({ fill: "green", shape: "dot", text: "OK" });
-			outputMSG.conversion = { From: node.inputpayloadtype, To: node.outputpayloadtype, Type: node.devicetype };
-			outputMSG.originalmessage = originalMSG;
-			outputMSG.topic = config.topic === undefined ? config.name || "" : config.topic;
+			setNodeStatus({ fill: "green", shape: "dot", text: node.inputpayloadtype.replace("node-red-contrib-", "") + " -> " + node.outputpayloadtype.replace("node-red-contrib-", "") + " (" + node.devicetype + ")" });
+			outputMSG.KNXUltilConversion = { From: node.inputpayloadtype, To: node.outputpayloadtype, Type: node.devicetype };
+			outputMSG.topic === undefined ? config.topic || config.name || "" : outputMSG.topic;
 			node.send(outputMSG);
 
 		});

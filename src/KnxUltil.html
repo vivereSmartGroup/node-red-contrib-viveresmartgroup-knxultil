@@ -22,9 +22,9 @@
 		},
 		icon: "serial.png",
 		label:
-		function () {
-			return "KnxUltil";
-		},
+			function () {
+				return this.name || this.topic || "KnxUltil";
+			},
 		paletteLabel: function () {
 			return "KnxUltil";
 		},
@@ -58,7 +58,7 @@
 
 		},
 		oneditsave: function () {
-	
+
 		}
 	});
 
@@ -94,7 +94,7 @@
 			<option value="node-red-contrib-knx-ultimate">node-red-contrib-knx-ultimate</option>
 			<option value="node-red-contrib-homekit-bridged">node-red-contrib-homekit-bridged</option>
 			<option value="node-red-contrib-alexa-smart-home">node-red-contrib-alexa-smart-home</option>
-			<!-- <option value="node-red-contrib-deconz">node-red-contrib-deconz</option> -->
+			<option value="node-red-contrib-deconz">node-red-contrib-deconz</option>
 		</select>
 	</div>
 	<div class="form-row">
@@ -103,14 +103,14 @@
 			<option value="node-red-contrib-knx-ultimate">node-red-contrib-knx-ultimate</option>
 			<option value="node-red-contrib-homekit-bridged">node-red-contrib-homekit-bridged</option>
 			<option value="node-red-contrib-alexa-smart-home">node-red-contrib-alexa-smart-home</option>
-			<!-- <option value="node-red-contrib-deconz">node-red-contrib-deconz</option> -->
+			<option value="node-red-contrib-deconz">node-red-contrib-deconz</option>
 		</select>
 	</div>
 
 </script>
 
 <script type="text/x-red" data-help-name="KnxUltil">
-		
+
 	<b>KnxUltil</b>&nbsp&nbsp&nbsp&nbsp<span style="color:red"><i class="fa fa-question-circle"></i>&nbsp<a target="_blank" href="https://github.com/vivereSmartGroup/node-red-contrib-viveresmartgroup-knxultil"><u>Help online</u></a></span>
 	
 	
