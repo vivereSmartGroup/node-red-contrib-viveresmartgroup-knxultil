@@ -32,13 +32,11 @@ Currently, the node is able to cross-translate messages between:<br/>
 * See <a href="https://github.com/vivereSmartGroup/node-red-contrib-viveresmartgroup-knxultil/blob/master/CHANGELOG.md">here the changelog</a>
 
 <br/>
-<br/>
 
 # KnxUltil NODE
 
-<img src='https://raw.githubusercontent.com/vivereSmartGroup/node-red-contrib-viveresmartgroup-knxultil/master/img/KnxUltil.png' width='60%'>
+<img src='https://raw.githubusercontent.com/vivereSmartGroup/node-red-contrib-viveresmartgroup-knxultil/master/img/KnxUltil.png' width='80%'>
 
-<br/>
 <br/>
 
 <details><summary>CLICK HERE, copy and paste it into your flow</summary>
