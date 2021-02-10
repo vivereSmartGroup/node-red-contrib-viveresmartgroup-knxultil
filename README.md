@@ -15,7 +15,7 @@
 <br/>
 <br/>
 
-## THIS NODE IS STILL IN BETA
+## CAUTION: THIS NODE IS STILL IN BETA. THE FIRST STABLE RELEASE WILL BE 1.0.0
 
 A set of utility nodes to translate messages between KNX, Alexa, Homekit and deConz.
 This node allows you to simply translate the output of various other nodes, into the input of other nodes.<br/>
@@ -30,6 +30,9 @@ Currently, the node is able to cross-translate messages between:<br/>
 
 ## CHANGELOG
 * See <a href="https://github.com/vivereSmartGroup/node-red-contrib-viveresmartgroup-knxultil/blob/master/CHANGELOG.md">here the changelog</a>
+
+<br/>
+<br/>
 
 # KnxUltil NODE
 
