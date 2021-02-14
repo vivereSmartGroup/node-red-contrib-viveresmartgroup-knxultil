@@ -84,7 +84,7 @@ module.exports = function (RED) {
 						if (node.devicetype === "cover") outputMSG = { payload: { CurrentPosition: 100 - inputMSG.payload, PositionState: 2 } };
 						break;
 					case "node-red-contrib-alexa-smart-home":
-						if (node.devicetype === "boolean") outputMSG = { acknowledge: true, payload: { state: { power: inputMSG.payload } } };
+						if (node.devicetype === "boolean") outputMSG = { acknowledge: true, payload: { state: { power: (inputMSG.payload === true ? 'ON' : 'OFF' ) } } };
 						if (node.devicetype === "temperature") outputMSG = { acknowledge: true, payload: { state: { temperature: inputMSG.payload } } };
 						if (node.devicetype === "brightness") outputMSG = { acknowledge: true, payload: { state: { brightness: inputMSG.payload } } };
 						if (node.devicetype === "cover") outputMSG = { acknowledge: true, payload: { state: { rangeValue: (100 - inputMSG.payload) } } };
