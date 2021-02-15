@@ -1,8 +1,12 @@
 # node-red-contrib-viveresmartgroup-knxultil
 
 <p>
-<b>Version 0.0.8 BETA - February 2021</b><br/>
+<b>Version 0.0.89 BETA - February 2021</b><br/>
 - Fixed alexa smarthome boolean output.</br>
+</p>
+<p>
+<b>Version 0.0.8 BETA - February 2021</b><br/>
+- Fixed deConz output.</br>
 </p>
 <p>
 <b>Version 0.0.7 BETA - February 2021</b><br/>
