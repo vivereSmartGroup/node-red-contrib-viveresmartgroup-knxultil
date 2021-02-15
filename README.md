@@ -17,7 +17,7 @@
 ## CAUTION: THIS NODE IS STILL IN BETA. THE FIRST STABLE RELEASE WILL BE 1.0.0
 
 <br/>
-<img src='https://raw.githubusercontent.com/vivereSmartGroup/node-red-contrib-viveresmartgroup-knxultil/master/img/beta.png' width='90%'>
+<img src='https://raw.githubusercontent.com/vivereSmartGroup/node-red-contrib-viveresmartgroup-knxultil/master/img/beta.png' width='30%'>
 <br/>
 
 
