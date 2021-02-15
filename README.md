@@ -28,6 +28,7 @@ Currently, the node is able to cross-translate messages between:<br/>
 - node-red-contrib-homekit-bridged
 - node-red-contrib-alexa-smart-home
 - node-red-contrib-deconz
+- node-red-contrib-googlehome (https://googlehome.hardill.me.uk/)
 
 <br/>
 

@@ -56,6 +56,12 @@ module.exports = function (RED) {
 					case "node-red-contrib-knx-deconz":
 						inputMSG = { payload: msg.payload };
 						break;
+					case "node-red-contrib-googlehome":
+						if (node.devicetype === "boolean") inputMSG = { payload: msg.payload.params.on };
+						if (node.devicetype === "temperature") inputMSG = { payload: msg.payload.params.thermostatTemperatureSetpoint };
+						if (node.devicetype === "brightness") inputMSG = { payload: msg.payload.params.brightness };
+						if (node.devicetype === "cover") inputMSG = { payload: msg.payload };
+						break;
 					default:
 						break;
 				}
@@ -72,6 +78,8 @@ module.exports = function (RED) {
 			//#region "ADAPT OUTPUT MESSAGE"
 			// #################################################################
 			let outputMSG = RED.util.cloneMessage(msg);
+			let outputMSGBefore = null;
+			let outputMSGAfter = null;
 			try {
 				switch (node.outputpayloadtype) {
 					case "node-red-contrib-knx-ultimate":
@@ -92,6 +100,16 @@ module.exports = function (RED) {
 					case "node-red-contrib-deconz":
 						outputMSG = { payload: inputMSG.payload };
 						break;
+					case "node-red-contrib-googlehome":
+						if (node.devicetype === "boolean") outputMSG = { payload: { command: "action.devices.commands.OnOff", params: { on: inputMSG.payload } } };
+						if (node.devicetype === "temperature") outputMSG = { payload: { command: "action.devices.commands.ThermostatTemperatureSetpoint", params: { thermostatTemperatureSetpoint: inputMSG.payload } } };
+						if (node.devicetype === "brightness") {
+							outputMSGBefore = RED.util.cloneMessage(msg);
+							outputMSGBefore = { payload: { command: "action.devices.commands.OnOff", params: { on: inputMSG.payload > 0 ? true : false } } };
+							outputMSG = { payload: { command: "action.devices.commands.BrightnessAbsolute", params: { brightness: inputMSG.payload } } };
+						}
+						if (node.devicetype === "cover") outputMSG = { payload: { CurrentPosition: 100 - inputMSG.payload, PositionState: 2 } };
+						break;
 					default:
 						break;
 				}
@@ -106,8 +124,27 @@ module.exports = function (RED) {
 
 			setNodeStatus({ fill: "green", shape: "dot", text: node.inputpayloadtype.replace("node-red-contrib-", "") + " -> " + node.outputpayloadtype.replace("node-red-contrib-", "") + " (" + node.devicetype + ")" });
 			outputMSG.KNXUltilConversion = { From: node.inputpayloadtype, To: node.outputpayloadtype, Type: node.devicetype };
-			outputMSG.topic === undefined ? config.topic || config.name || "" : outputMSG.topic;
-			node.send(outputMSG);
+
+
+			// Is there a second message to send?
+			if (outputMSGBefore !== null) {
+				outputMSGBefore.topic === undefined ? config.topic || config.name || "" : outputMSGBefore.topic;
+				node.send(outputMSGBefore);
+			}
+
+			setTimeout(() => {
+				outputMSG.topic === undefined ? config.topic || config.name || "" : outputMSG.topic;
+				node.send(outputMSG);
+			}, outputMSGBefore === null ? 100 : 1000);
+
+			// Is there a second message to send?
+			if (outputMSGAfter !== null) {
+				setTimeout(() => {
+					outputMSGAfter.topic === undefined ? config.topic || config.name || "" : outputMSGAfter.topic;
+					node.send(outputMSGAfter);
+				}, outputMSGBefore === null ? 1000 : 2000);
+			}
+
 
 		});
 
